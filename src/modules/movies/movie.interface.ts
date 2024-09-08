@@ -1,7 +1,7 @@
 import { Model } from "mongoose";
 
 export type TMovie = {
-  _id: string;
+  
   title: string;
   description: string;
   releaseDate: Date;
@@ -14,6 +14,7 @@ export type TMovie = {
 
 // Put all user instance methods in this interface:
 export type TMovieMethods = {
+  // eslint-disable-next-line no-unused-vars
   createSlug(payload: TMovie): string;
 };
 

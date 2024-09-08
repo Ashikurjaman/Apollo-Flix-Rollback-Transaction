@@ -18,15 +18,15 @@ const addReview = async (
   await Movie.updateOne({ slug }, { totalRating: reviewCount }, { new: true });
   return review;
 };
-const getAllReview = () => {};
-const getReviewById = () => {};
-const updateReview = () => {};
-const deleteReview = () => {};
+// const getAllReview = () => {};
+// const getReviewById = () => {};
+// const updateReview = () => {};
+// const deleteReview = () => {};
 
 export const ReviewServices = {
   addReview,
-  getAllReview,
-  getReviewById,
-  updateReview,
-  deleteReview,
+  //   getAllReview,
+  //   getReviewById,
+  //   updateReview,
+  //   deleteReview,
 };

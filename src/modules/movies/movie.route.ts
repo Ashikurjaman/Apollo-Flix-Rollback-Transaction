@@ -1,5 +1,6 @@
 import express from "express";
 import { MovieControllers } from "./movie.controller";
+import { ReviewControllers } from "../reviews/reviews.controller";
 
 const router = express.Router();
 
@@ -9,9 +10,9 @@ router.get("/", MovieControllers.getAllMovies);
 
 // Review Route
 
-router.post("/:slug/review", ReviewControllers.getMovieBySlug);
-router.get("/:slug/review", ReviewControllers.getMovieBySlug);
-router.put("/:slug/review", ReviewControllers.getMovieBySlug);
-router.delete("/:slug/review", ReviewControllers.getMovieBySlug);
+router.post("/:slug/review", ReviewControllers.addReview);
+// router.get("/:slug/review", ReviewControllers.getAllReviews);
+// router.put("/:slug/review", ReviewControllers.updateReview);
+// router.delete("/:slug/review", ReviewControllers.deleteReview);
 
 export const MovieRoutes = router;

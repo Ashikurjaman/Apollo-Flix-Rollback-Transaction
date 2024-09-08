@@ -4,10 +4,6 @@ import slugify from "slugify";
 import { TMovie, TMovieMethods, TMovieModel } from "./movie.interface";
 
 const movieSchema = new Schema<TMovie, TMovieModel, TMovieMethods>({
-  _id: {
-    type: String,
-    required: true,
-  },
   title: {
     type: String,
     required: [true, "Title is required"],

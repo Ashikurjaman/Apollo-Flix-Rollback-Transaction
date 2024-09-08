@@ -1,8 +1,6 @@
 import { TMovie } from "./movie.interface";
 import { Movie } from "./movie.model";
 const createMovie = async (payload: TMovie) => {
-  
-  
   /* 
   Way1: Using business logic here....
 
@@ -19,19 +17,19 @@ const createMovie = async (payload: TMovie) => {
    //const result = await Movie.create(payload);
 */
 
-/* Way3: Using instance method logic here....
+  /* Way3: Using instance method logic here....
 
-  
+  */
   const result = new Movie(payload);
-  
+
   const slug = result.createSlug(payload);
-  
+
   result.slug = slug;
   await result.save(); // database save
 
   return result;
 };
-*/
+
 const getAllMovies = async () => {
   const result = await Movie.find();
   return result;
@@ -47,5 +45,3 @@ export const MovieServices = {
   getAllMovies,
   getMovieBySlug,
 };
-
-//interface => schema => model => query

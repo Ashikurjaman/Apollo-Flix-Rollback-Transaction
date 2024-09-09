@@ -5,7 +5,6 @@ const reviewSchema = new Schema<TReview>({
   movieId: {
     type: Schema.Types.ObjectId,
     ref: "Movie",
-    required: true,
   },
   email: {
     type: String,

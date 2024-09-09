@@ -1,7 +1,8 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { ReviewServices } from "./review.service";
+import { catchAsync } from "../../Utility/catchAsync";
 
-const addReviews = async (req: Request, res: Response) => {
+const addReviews = catchAsync(async (req: Request, res: Response,next:NextFunction) => {
   const { slug } = req.params;
   const reviewData = req.body;
   const result = await ReviewServices.addReview(slug, reviewData);
@@ -11,8 +12,7 @@ const addReviews = async (req: Request, res: Response) => {
     message: "Review is created successfully !",
     data: result,
   });
-};
-
+});
 // const getAllReviews = async (req: Request, res: Response) => {
 //   try {
 //     const result = await ReviewServices.getAllReviews();

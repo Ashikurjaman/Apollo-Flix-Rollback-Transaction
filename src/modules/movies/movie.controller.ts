@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { MovieServices } from "./movie.service";
+import { catchAsync } from "../../Utility/catchAsync";
 
-const createMovie = async (req: Request, res: Response) => {
+const createMovie = catchAsync(async (req: Request, res: Response) => {
   const movieData = req.body;
   const result = await MovieServices.createMovie(movieData);
 
@@ -10,7 +11,7 @@ const createMovie = async (req: Request, res: Response) => {
     message: "Movie is created successfully !",
     data: result,
   });
-};
+});
 
 const getAllMovies = async (req: Request, res: Response) => {
   try {

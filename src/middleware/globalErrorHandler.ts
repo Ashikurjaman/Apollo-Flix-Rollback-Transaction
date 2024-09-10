@@ -1,5 +1,6 @@
-import { ErrorRequestHandler, NextFunction, Request, Response } from "express";
+import { ErrorRequestHandler } from "express";
 import { handelValidationError } from "../Error/handelValidationError";
+import { TErrorResources } from "../interface/error.interface";
 
 export const globalErrorHandler: ErrorRequestHandler = (
   err,
@@ -7,20 +8,22 @@ export const globalErrorHandler: ErrorRequestHandler = (
   res,
   next
 ) => {
-  let statusCode = 500;
-  let message = "Something Went Wrong";
+  const statusCode = 500;
+
   let errorResources: TErrorResources = [
     {
       path: "",
       message: "something went wrong",
     },
   ];
-  if ((err.name = "ValidationError")) {
+  if (err.name === "ValidationError") {
     const simplified = handelValidationError(err);
-    res.status(statusCode).json({
-      success: false,
-      message: err.message,
-      errorResources,
-    });
+    errorResources = simplified.errorSource;
+    console.log(simplified);
   }
+  res.status(statusCode).json({
+    success: false,
+    message: err.name,
+    errorResources,
+  });
 };

@@ -1,6 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
 import { MovieRoutes } from "./modules/movies/movie.route";
-import { error } from "console";
 import { notFound } from "./middleware/notFound";
 import { globalErrorHandler } from "./middleware/globalErrorHandler";
 const app = express();

@@ -1,11 +1,18 @@
 import express from "express";
 import { MovieControllers } from "./movie.controller";
 import { ReviewControllers } from "../reviews/reviews.controller";
+import { validateRequest } from "../../middleware/validateRequest";
+import { zodMovieSchema } from "./movie.validate";
 
 const router = express.Router();
 
-router.post("/", MovieControllers.createMovie);
-router.get("/:slug", MovieControllers.getMovieBySlug);
+router.post(
+  "/",
+  validateRequest(zodMovieSchema.createZodMovieSchema),
+  MovieControllers.createMovie
+);
+// router.get("/:slug", MovieControllers.getMovieBySlug);
+router.get("/:id", MovieControllers.getMovieById);
 router.get("/", MovieControllers.getAllMovies);
 
 // Review Route

@@ -1,3 +1,4 @@
+import { userRouter } from "./modules/user/user.route";
 import express, { NextFunction, Request, Response } from "express";
 import { MovieRoutes } from "./modules/movies/movie.route";
 import { notFound } from "./middleware/notFound";
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/movies", MovieRoutes);
+app.use("/api/users", userRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello Next!");

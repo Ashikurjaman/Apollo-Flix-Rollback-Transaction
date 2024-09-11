@@ -28,7 +28,6 @@ const userSchema = new Schema<TUser>({
   },
   passwordAtChange: {
     type: "date",
-    required: true,
   },
 });
 

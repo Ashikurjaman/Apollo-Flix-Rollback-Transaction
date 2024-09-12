@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { MovieServices } from "./movie.service";
 import { catchAsync } from "../../Utility/catchAsync";
-import { z } from "zod";
 
 const createMovie = catchAsync(async (req: Request, res: Response) => {
   const movieData = req.body;

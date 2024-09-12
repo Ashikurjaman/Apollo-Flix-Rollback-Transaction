@@ -37,6 +37,6 @@ export const globalErrorHandler: ErrorRequestHandler = (
     success: false,
     message: err.name,
     errorResources,
-    // err,
+    err,
   });
 };
